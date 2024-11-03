@@ -1,0 +1,1 @@
+export const API_URL = "https://trendmart-react-default-rtdb.europe-west1.firebasedatabase.app"
