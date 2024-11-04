@@ -1,0 +1,15 @@
+.productDetailsPage {
+  display: flex;
+  padding: 40px 30px;
+  
+
+}
+.imageofProduct {
+    width: 30%;
+    height: 40%;
+}
+.productdetails{
+    padding: 20px;
+    text-align: center;
+}
+

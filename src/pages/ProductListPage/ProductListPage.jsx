@@ -14,9 +14,14 @@ function ProductListPage() {
     axios
       .get(`${API_URL}/products.json`)
       .then((response) => {
-        
-        console.log("API response:", response.data);
-        setProducts(Object.values(response.data));
+        const datas = Object.keys(response.data).map( (productId) => {
+          return {
+            id: productId,
+            ...response.data[productId]
+          }
+        });
+        console.log("API response:", datas);
+        setProducts(Object.values(datas));
       })
       .catch((e) => console.log("Error getting products from the API...", e));
   }, []);
@@ -25,7 +30,7 @@ function ProductListPage() {
       {products &&
         products.map((productDetails) => {
           return (
-            
+            <Link className="link" to={`/product/${productDetails.id}`}>
             <Card key={productDetails.id} sx={{ maxWidth: 345 ,minWidth:345,borderRadius:5}}>
               <CardMedia
                 sx={{ height: 250, backgroundSize: 'contain' }}
@@ -33,7 +38,7 @@ function ProductListPage() {
                 title={productDetails.title}
               />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography className="cardsize"gutterBottom variant="h5" component="div">
                   {productDetails.title}
                 </Typography>
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
@@ -41,6 +46,7 @@ function ProductListPage() {
                 </Typography>
               </CardContent>
             </Card>
+            </Link>
           );
         })}
     </div>

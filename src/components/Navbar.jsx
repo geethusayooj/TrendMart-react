@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import { Link, useNavigate,useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { NavLink } from "react-router-dom";
@@ -9,13 +9,19 @@ import Logo from "../assets/images/logotrendmart.jpg"
 function Navbar() {
   const [selectedTab, setSelectedTab] = useState("home");
   const navigate = useNavigate();
+  const location =useLocation();
+
+  useEffect(() =>{
+    setSelectedTab(location.pathname);
+  }, [location.pathname]);
+  
   return (
     <nav className="Navbar">
       <img className = "logoimage" src={Logo} />
       <Tabs
         defaultValue={"home"}
         value={selectedTab}
-        onChange={(e, v) => {setSelectedTab(v); navigate(v)}}
+        onChange={(e, v) => {navigate(v)}}
         sx={{height:"100%"}}
         classes={{ indicator: 'indicator'}}
       >
