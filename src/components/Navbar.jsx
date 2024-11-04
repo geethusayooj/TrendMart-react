@@ -13,27 +13,26 @@ function Navbar() {
     <nav className="Navbar">
       <img className = "logoimage" src={Logo} />
       <Tabs
-        textColor="secondary"
-        indicatorColor="secondary"
         defaultValue={"home"}
         value={selectedTab}
         onChange={(e, v) => {setSelectedTab(v); navigate(v)}}
         sx={{height:"100%"}}
+        classes={{ indicator: 'indicator'}}
       >
         
-        <Tab value={"/"} label="Home">
+        <Tab classes={{ root: 'tab' }} value={"/"} label="Home">
           Home
         </Tab>
-        <Tab value={"/electronics"} label="ELECTRONICS">
+        <Tab classes={{ root: 'tab' }} value={"/electronics"} label="ELECTRONICS">
           Electronics
         </Tab>
-        <Tab value={"/jewelery"} label="JEWELERY">
+        <Tab classes={{ root: 'tab' }} value={"/jewelery"} label="JEWELERY">
           Jewelery
         </Tab>
-        <Tab value={"/menclothing"} label="MEN">
+        <Tab classes={{ root: 'tab' }} value={"/menclothing"} label="MEN">
           Men's clothing
         </Tab>
-        <Tab value={"/womenclothing"} label="WOMEN">
+        <Tab classes={{ root: 'tab' }} value={"/womenclothing"} label="WOMEN">
           Women's clothing
         </Tab>
       </Tabs>
