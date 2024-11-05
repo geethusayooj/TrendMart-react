@@ -4,7 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { NavLink } from "react-router-dom";
 import ProductsByCategory from "./ProductsByCategory/ProductsByCategory";
-import Logo from "../assets/images/logotrendmart.jpg"
+import Logo from "../assets/images/tmlogo.jpg"
 
 function Navbar() {
   const [selectedTab, setSelectedTab] = useState("home");
@@ -40,6 +40,9 @@ function Navbar() {
         </Tab>
         <Tab classes={{ root: 'tab' }} value={"/womenclothing"} label="WOMEN">
           Women's clothing
+        </Tab>
+        <Tab classes={{ root: 'tab' }} value={"/products/create"} label="CREATE">
+         Create 
         </Tab>
       </Tabs>
     </nav>

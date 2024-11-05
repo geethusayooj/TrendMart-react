@@ -32,14 +32,17 @@ function ProductsByCategory({ category }) {
     };
   }, [category]);
   return (
+   
     <div className="ProductByCategory card-list">
+     
       {products &&
         products.map((productDetails) => {
           return (
+
             <Link className="link" to={`/product/${productDetails.id}`} key={productDetails.id}>
             <Card
               key={productDetails.id}
-              sx={{ maxWidth: 345, minWidth: 345, borderRadius: 5 }}
+              sx={{ maxWidth: 300, minWidth: 300, borderRadius: 5 }}
             >
               <CardMedia
                 sx={{ height: 250, backgroundSize: "contain" }}

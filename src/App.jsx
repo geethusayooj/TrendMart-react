@@ -8,16 +8,24 @@ import ProductsByCategory from "./components/ProductsByCategory/ProductsByCatego
 import Electronics from "./components/Electronics/Electronics";
 import Jewelery from "./components/Jewelery/Jewelery";
 import MenClothing from "./components/Menclothing/Menclothing";
-import WomenClothing from "./components/womenclothing/Womenclothing.JSX";
+import WomenClothing from "./components/Womenclothing/Womenclothing"
 import ProductDetailPage from "./pages/ProductDetailPage/ProductDetailPage";
+import CreateProductPage from "./pages/CreateProductPage/CreateProductPage";
+
 
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [products, setProducts] = useState(0);
+  const [products, setProducts] = useState([]);
+  const createProduct  = (productDetails) => {
+    const newProduct = {
+      ...productDetails,
+    };
+    setProducts((prevProducts) => [newProduct, ...prevProducts]);
+  };
   return (
     <>
       <Navbar />
+      
       <Routes>
         <Route path="/" element={<ProductListPage />} />
         <Route path="/electronics" element={<Electronics />} />
@@ -25,6 +33,8 @@ function App() {
         <Route path="/menclothing" element={<MenClothing />} />
         <Route path="/womenclothing" element={<WomenClothing />} />
         <Route path="/product/:productId" element={<ProductDetailPage />} />
+        <Route path="/products/create" element={<CreateProductPage callbackToCreate={ createProduct }/>} />
+
        
        
 

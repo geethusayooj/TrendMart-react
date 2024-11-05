@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate  } from "react-router-dom";
 import { API_URL } from "../../config/api";
 import axios from "axios";
 import "./ProductDetailPage.css";
-
+import { Link } from "react-router-dom";
 function ProductDetailPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
+  const navigate = useNavigate(); 
 
   const getProduct = () => {
     axios
@@ -19,6 +20,14 @@ function ProductDetailPage() {
         setProduct({});
       });
   };
+  // delete a product
+  const deleteProduct= () => {
+    axios.delete(`${API_URL}/products/${productId}.json`)
+        .then( response => {
+            navigate("/");
+        })
+        .catch((error) => console.log("Error deleting product...", error));
+}
   useEffect(() => {
     getProduct();
   }, [productId]);
@@ -32,6 +41,14 @@ function ProductDetailPage() {
         <p>Category:{product.category}</p>
         <p>Rating: {product?.rating?.rate}</p>
         <p>Reviews: {product?.rating?.count}</p>
+       
+      <div className="buttonDetailpage">
+      <Link to="/">
+                <button className="detailpageButton">Back </button>
+            </Link>
+
+            <button className="detailpageButton" onClick={deleteProduct}>Delete</button>
+      </div>
       </div>
     </div>
   );

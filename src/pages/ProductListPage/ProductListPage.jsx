@@ -7,6 +7,8 @@ import "./ProductListPage.css";
 import axios from "axios";
 import { API_URL } from "../../config/api";
 import { Link } from "react-router-dom";
+import coverimage from "../../assets/images/cover-2.jpg";
+
 function ProductListPage() {
   const [products, setProducts] = useState([]);
 
@@ -14,11 +16,11 @@ function ProductListPage() {
     axios
       .get(`${API_URL}/products.json`)
       .then((response) => {
-        const datas = Object.keys(response.data).map( (productId) => {
+        const datas = Object.keys(response.data).map((productId) => {
           return {
             id: productId,
-            ...response.data[productId]
-          }
+            ...response.data[productId],
+          };
         });
         console.log("API response:", datas);
         setProducts(Object.values(datas));
@@ -26,30 +28,50 @@ function ProductListPage() {
       .catch((e) => console.log("Error getting products from the API...", e));
   }, []);
   return (
-    <div className="ProductListPage card-list">
-      {products &&
-        products.map((productDetails) => {
-          return (
-            <Link className="link" to={`/product/${productDetails.id}`}>
-            <Card key={productDetails.id} sx={{ maxWidth: 345 ,minWidth:345,borderRadius:5}}>
-              <CardMedia
-                sx={{ height: 250, backgroundSize: 'contain' }}
-                image={productDetails.image}
-                title={productDetails.title}
-              />
-              <CardContent>
-                <Typography className="cardsize"gutterBottom variant="h5" component="div">
-                  {productDetails.title}
-                </Typography>
-                <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                  {productDetails.price}
-                </Typography>
-              </CardContent>
-            </Card>
-            </Link>
-          );
-        })}
-    </div>
+    <>
+      <div className="cover-image-container">
+        <img className="coverImage" src={coverimage} />
+        <div className="cover-text">
+          <h1>Welcome to Trend Mart</h1>
+          <p>Trendy Picks, Every Day!</p>
+        </div>
+      </div>
+      <div className="ProductListPage card-list">
+        {products &&
+          products.map((productDetails) => {
+            return (
+              <Link className="link" to={`/product/${productDetails.id}`}>
+                <Card
+                  key={productDetails.id}
+                  sx={{ maxWidth: 300, minWidth: 300, borderRadius: 5 }}
+                >
+                  <CardMedia
+                    sx={{ height: 250, backgroundSize: "contain" }}
+                    image={productDetails.image}
+                    title={productDetails.title}
+                  />
+                  <CardContent>
+                    <Typography
+                      className="cardsize"
+                      gutterBottom
+                      variant="h5"
+                      component="div"
+                    >
+                      {productDetails.title}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.secondary" }}
+                    >
+                      {productDetails.price}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Link>
+            );
+          })}
+      </div>
+    </>
   );
 }
 
