@@ -29,6 +29,9 @@ function Navbar() {
         <Tab classes={{ root: 'tab' }} value={"/"} label="Home">
           Home
         </Tab>
+        <Tab classes={{ root: 'tab' }} value={"/about"} label="About">
+          About
+        </Tab>
         <Tab classes={{ root: 'tab' }} value={"/electronics"} label="ELECTRONICS">
           Electronics
         </Tab>
