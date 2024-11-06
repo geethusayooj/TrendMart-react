@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductDetailPage from "../ProductDetailPage/ProductDetailPage";
 import { API_URL } from "../../config/api";
-import "./CreateProductPage.css"
+import "./CreateProductPage.css";
 
 function CreateProductPage(props) {
   const [title, setTitle] = useState("");
@@ -24,32 +24,29 @@ function CreateProductPage(props) {
       category: category,
       image: image,
     };
-  
-  axios
-    .post(`${API_URL}/products/.json`, newProduct)
-    .then((response) => {
-      props.callbackToCreate(ProductDetailPage);
 
-      navigate("/");
+    axios
+      .post(`${API_URL}/products/.json`, newProduct)
+      .then((response) => {
+        props.callbackToCreate(ProductDetailPage);
 
-      setTitle("");
-      setPrice("");
-      setDescription("");
-      setCategory("");
-      setImage("");
-    })
-    .catch((e) => console.log("Error creating a new products...", e));
-};
+        navigate("/");
+
+        setTitle("");
+        setPrice("");
+        setDescription("");
+        setCategory("");
+        setImage("");
+      })
+      .catch((e) => console.log("Error creating a new products...", e));
+  };
   return (
     <div className="container">
       <h3>Add Product here..</h3> <br></br>
       <form className="product-form" onSubmit={handleSubmit}>
-        
         <div class="form-group">
-        <label>
-          Title of Product:
-        </label>
-        <input
+          <label>Title of Product:</label>
+          <input
             type="text"
             name="title"
             placeholder="Enter the title of product"
@@ -61,11 +58,8 @@ function CreateProductPage(props) {
           />
         </div>
         <div class="form-group">
-        <label>
-          Price:
-          
-        </label>
-        <input
+          <label>Price:</label>
+          <input
             type="number"
             name="price"
             placeholder="Enter the price "
@@ -77,11 +71,8 @@ function CreateProductPage(props) {
           />
         </div>
         <div class="form-group">
-        <label>
-          Description:
-          
-        </label>
-        <textarea
+          <label>Description:</label>
+          <textarea
             name="description"
             placeholder="Enter the description"
             value={description}
@@ -91,11 +82,8 @@ function CreateProductPage(props) {
           />
         </div>
         <div class="form-group">
-        <label>
-          Category:
-          
-        </label>
-        <select
+          <label>Category:</label>
+          <select
             name="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
@@ -109,11 +97,8 @@ function CreateProductPage(props) {
           </select>
         </div>
         <div class="form-group">
-        <label>
-          Image URL:
-         
-        </label>
-        <input
+          <label>Image URL:</label>
+          <input
             type="url"
             name="image"
             placeholder="https://i.imgur.com/eTmWoAN.png"
@@ -122,9 +107,8 @@ function CreateProductPage(props) {
               setImage(e.target.value);
             }}
           />
-        
         </div>
-     
+
         <button type="submit">Create</button>
       </form>
     </div>

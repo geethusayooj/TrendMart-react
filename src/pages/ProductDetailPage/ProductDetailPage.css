@@ -13,15 +13,11 @@
     padding: 20px;
     text-align: center;
 }
-.buttonDetailpage{
- display:flex;
-  gap:20px;
-  justify-content: center;
 
-}
 .detailpageButton{
  
-  padding: 12px;
-  margin: 0px 30px;
+  padding: 10px;
+  margin: 10px 10px;
+
   
 }
