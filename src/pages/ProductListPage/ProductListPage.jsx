@@ -9,7 +9,7 @@ import { API_URL } from "../../config/api";
 import { Link } from "react-router-dom";
 import coverimage from "../../assets/images/cover-2.jpg";
 
-function ProductListPage() {
+function ProductListPage({ searchQuery }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -38,7 +38,9 @@ function ProductListPage() {
       </div>
       <div className="ProductListPage card-list">
         {products &&
-          products.map((productDetails) => {
+          products
+          .filter(p => p.title.toLowerCase().includes(searchQuery.toLowerCase()))
+          .map((productDetails) => {
             return (
               <Link className="link" to={`/product/${productDetails.id}`}>
                 <Card

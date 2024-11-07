@@ -3,18 +3,30 @@ import React, { useEffect, useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { NavLink } from "react-router-dom";
-import ProductsByCategory from "./ProductsByCategory/ProductsByCategory";
-import Logo from "../assets/images/tmlogo.jpg"
+import ProductsByCategory from "../ProductsByCategory/ProductsByCategory";
+import Logo from "../../assets/images/tmlogo.jpg";
+import "./Navbar.css"
 
-function Navbar() {
+function Navbar({ onSearch }) {
   const [selectedTab, setSelectedTab] = useState("home");
+  const [searchInput, setSearchInput] = useState("");
+ 
   const navigate = useNavigate();
   const location =useLocation();
 
   useEffect(() =>{
     setSelectedTab(location.pathname);
   }, [location.pathname]);
-  
+   
+  const handleInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    onSearch(searchInput); 
+    
+  };
   return (
     <nav className="Navbar">
       <img className = "logoimage" src={Logo} />
@@ -48,6 +60,17 @@ function Navbar() {
          Create 
         </Tab>
       </Tabs>
+      
+      <form onSubmit={handleSearchSubmit} className="search-form">
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={searchInput}
+          onChange={handleInputChange}
+          className="search-input"
+        />
+        <button type="submit" className="search-button">Search</button>
+      </form>
     </nav>
   );
 }

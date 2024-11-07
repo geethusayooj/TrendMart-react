@@ -1,55 +1,51 @@
-.card-list{
-    display:flex;
-    padding:10px;
-    flex-wrap: wrap;
-    gap:20px;
-    justify-content: center;
+.card-list {
+  display: flex;
+  padding: 10px;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .link {
-    text-decoration: none;
+  text-decoration: none;
 }
-.cardsize{
-    -webkit-line-clamp: 3;
-position: relative;
-overflow: hidden;
-display: -webkit-box;
--webkit-box-orient: vertical;
+.cardsize {
+  -webkit-line-clamp: 3;
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 
-font-size: 8px;
-font-weight: 400;
-line-height: 22px !important;
-padding-top: 5px;
-height: 66px;
-text-overflow: ellipsis;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 22px !important;
+  padding-top: 5px;
+  height: 66px;
+  text-overflow: ellipsis;
 }
-.coverImage{
-    width:100%;
-    height: auto;
+.coverImage {
+  width: 100%;
+  height: auto;
 }
 
+.cover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 
+  color: white;
+}
 
-  .cover-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-   
-    color: white;
-    
-  }
-  
-  .cover-text h1 {
-    font-size: 50px;
+.cover-text h1 {
+  font-size: 50px;
 
-    font-weight: bold;
-    color: #542b3d;
-    font-style: oblique;
-  }
- .cover-text p{
-    font-weight: bold;
-    color: #542b3d;
-    text-align: center;
-    font-size: 25px;
-  }
-  
+  font-weight: bold;
+  color: #542b3d;
+  font-style: oblique;
+}
+.cover-text p {
+  font-weight: bold;
+  color: #542b3d;
+  text-align: center;
+  font-size: 25px;
+}

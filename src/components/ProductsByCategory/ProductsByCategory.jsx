@@ -36,6 +36,7 @@ function ProductsByCategory({ category }) {
     <div className="ProductByCategory card-list">
      
       {products &&
+      
         products.map((productDetails) => {
           return (
 
