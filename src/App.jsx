@@ -13,28 +13,30 @@ import EditProductPage from "./pages/EditProductPage/EditProductPage";
 import CreateProductPage from "./pages/CreateProductPage/CreateProductPage";
 import AboutPage from "./pages/AboutPage/AboutPage";
 
-
 function App() {
   const [products, setProducts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(""); 
+  const [searchQuery, setSearchQuery] = useState("");
   const createProduct = (productDetails) => {
     const newProduct = {
       ...productDetails,
-      
     };
     setProducts((prevProducts) => [newProduct, ...prevProducts]);
   };
-   // Update search query based on user input
-   const handleSearch = (query) => {
+
+  // Update search query based on user input
+  const handleSearch = (query) => {
     setSearchQuery(query);
   };
 
   return (
     <>
-      <Navbar onSearch={handleSearch}/>
+      <Navbar onSearch={handleSearch} />
 
       <Routes>
-        <Route path="/" element={<ProductListPage searchQuery={searchQuery} />} />
+        <Route
+          path="/"
+          element={<ProductListPage searchQuery={searchQuery} />}
+        />
         <Route path="/electronics" element={<Electronics />} />
         <Route path="/jewelery" element={<Jewelery />} />
         <Route path="/menclothing" element={<MenClothing />} />
@@ -46,7 +48,6 @@ function App() {
         />
         <Route path="/products/:productId" element={<EditProductPage />} />
         <Route path="/about" element={<AboutPage />} />
-        
       </Routes>
     </>
   );
