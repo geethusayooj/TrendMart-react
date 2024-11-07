@@ -3,7 +3,9 @@
   padding: 10px;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
+
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .link {
@@ -37,7 +39,7 @@
 }
 
 .cover-text h1 {
-  font-size: 50px;
+  font-size: 80px;
 
   font-weight: bold;
   color: #542b3d;

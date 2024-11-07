@@ -5,7 +5,8 @@ import Tab from "@mui/material/Tab";
 import { NavLink } from "react-router-dom";
 import ProductsByCategory from "../ProductsByCategory/ProductsByCategory";
 import Logo from "../../assets/images/tmlogo.jpg";
-import "./Navbar.css"
+import "./Navbar.css";
+import iconmenu from "../../assets/images/menu-icon.png";
 
 function Navbar({ onSearch }) {
   const [selectedTab, setSelectedTab] = useState("home");
@@ -30,6 +31,7 @@ function Navbar({ onSearch }) {
   return (
     <nav className="Navbar">
       <img className = "logoimage" src={Logo} />
+      <div class="iconmenu"><img src={iconmenu} alt="iconmenu" /></div>
       <Tabs
         defaultValue={"home"}
         value={selectedTab}

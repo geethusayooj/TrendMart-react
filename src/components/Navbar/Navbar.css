@@ -26,8 +26,23 @@
     border-radius: 4px;
     cursor: pointer;
   }
+  .iconmenu{
+    display: none;
+   
+  }
   
   .search-button:hover {
     background-color: #555;
+  }
+  @media(max-width:480px){
+    .navbar{
+      display: none;
+  
+    }
+    .iconmenu{
+      display: flex;
+      justify-content: center;
+    }
+    
   }
   

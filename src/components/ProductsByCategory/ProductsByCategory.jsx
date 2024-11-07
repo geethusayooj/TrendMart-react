@@ -24,7 +24,7 @@ function ProductsByCategory({ category }) {
         });
 
         const filteredData = datas.filter((data) => data.category === category);
-        setProducts(filteredData);
+        setProducts(filteredData.toReversed());
       })
       .catch((e) => console.log("Error getting products from the API...", e));
     return () => {
@@ -43,7 +43,7 @@ function ProductsByCategory({ category }) {
             <Link className="link" to={`/product/${productDetails.id}`} key={productDetails.id}>
             <Card
               key={productDetails.id}
-              sx={{ maxWidth: 300, minWidth: 300, borderRadius: 5 }}
+              // sx={{ maxWidth: 300, minWidth: 300, borderRadius: 5 }}
             >
               <CardMedia
                 sx={{ height: 250, backgroundSize: "contain" }}
