@@ -26,7 +26,7 @@ function ProductDetailPage() {
     axios
       .delete(`${API_URL}/products/${productId}.json`)
       .then((response) => {
-        navigate("/");
+        navigate(-1);
       })
       .catch((error) => console.log("Error deleting product...", error));
   };
@@ -49,9 +49,8 @@ function ProductDetailPage() {
             <button className="detailpageButton">Back </button>
           </Link>
           <Link className="detailpageButton" to={`/products/${productId}`}>
-   <button>Edit</button>
-</Link>
-
+            <button>Edit</button>
+          </Link>
 
           <button className="detailpageButton" onClick={deleteProduct}>
             Delete
