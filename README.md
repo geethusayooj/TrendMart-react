@@ -11,16 +11,18 @@ Follow these steps to set up and run this application on your local machine.
 ```bash
 git clone <repository-url>
 cd <repository-folder>
+```
 ### 2. Install Dependencies
+```bash
 npm install
-
+```
 ### 3. Set Up Environment Variables
  create a `.env` file in the root directory and add the necessary variables.
 VITE_API_URL=http://localhost:5173
 
 ### 3. Run the Application
+```bash
 npm run dev
-
-##Demo
-Check out the live version of this project on Netlify 
-https://trend-mart-onlinestore.netlify.app/
+```
+## Demo
+Check out the live version of this project on Netlify: [Trend Mart Online Store](https://trend-mart-onlinestore.netlify.app/).
