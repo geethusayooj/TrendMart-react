@@ -8,7 +8,7 @@ This project is a responsive e-commerce app that allows users to browse various 
 Follow these steps to set up and run this application on your local machine.
 
 ### 1. Clone the Repository
-```bash
+
 git clone <repository-url>
 cd <repository-folder>
 ### 2. Install Dependencies
@@ -21,6 +21,5 @@ VITE_API_URL=http://localhost:5173
 ### 3. Run the Application
 npm run dev
 
-##Demo
-Check out the live version of this project on Netlify 
-https://trend-mart-onlinestore.netlify.app/
+## Demo
+Check out the live version of this project on Netlify: [Trend Mart Online Store](https://trend-mart-onlinestore.netlify.app/).
