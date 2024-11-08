@@ -13,9 +13,9 @@ git clone <repository-url>
 cd <repository-folder>
 ```
 ### 2. Install Dependencies
-
+```bash
 npm install
-
+```
 ### 3. Set Up Environment Variables
  create a `.env` file in the root directory and add the necessary variables.
 VITE_API_URL=http://localhost:5173
